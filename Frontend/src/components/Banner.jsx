@@ -3,10 +3,10 @@ import bannerBg from "../../public/banner.jpg"
 const Banner = () => {
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col-reverse md:flex-row">
+      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col-reverse md:flex-row  md:my-10">
         <div className="w-full md:w-1/2 mt-12 md:mt-32">
           <div className="space-y-12 ">
-            <h1 className=" text-3xl md:text-4xl font-boldl leading-10 " >
+            <h1 className=" text-3xl md:text-4xl font-bold leading-10 " >
               Hello, welcomes here to learn something{" "}
               <span className="text-pink-500">new everyday!!!</span>
             </h1>
@@ -31,7 +31,7 @@ const Banner = () => {
           </div>
           <button className=" mt-6 btn btn-secondary">Secondary</button>
         </div>
-        <div className="w-full md:w-1/2 md:mt-32">
+        <div className="w-full md:w-1/2 ">
           <img src={bannerBg} alt="book image" className="w-92 h-92 " />
         </div>
       </div>

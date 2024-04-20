@@ -1,4 +1,16 @@
+import { useState, useEffect } from "react";
 const Navbar = () => {
+  const [sticky, setSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      return window.scrollY > 0 ? setSticky(true) : setSticky(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const navItems = (
     <>
       <li>
@@ -17,8 +29,11 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 ">
-        <div className="navbar bg-base-100">
+      <hr />
+      <div
+        className={`fixed  inset-x-0 top-0  max-w-screen-2xl container mx-auto md:px-20 px-4 ${sticky ? "bg-base-200 shadow-md duration-300 transition-all ease-in-out" : ""}}`}
+      >
+        <div className="navbar  ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -54,9 +69,15 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">{navItems}</ul>
             </div>
+            {/* search input */}
             <div className="hidden md:block">
               <label className="border px-3 py-2 rounded-md  flex items-center gap-2">
-                <input type="text" className="grow outline-none" placeholder="Search" />
+                <input
+                  type="text"
+                  className=" grow outline-none bg-transparent" 
+                  placeholder="Search"
+                  
+                />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
