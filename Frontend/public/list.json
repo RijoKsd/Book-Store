@@ -27,7 +27,7 @@
     "id": 4,
     "name": "Romance Book",
     "title": "The Story of the Romance Book",
-    "price": 0,
+    "price": 10,
     "category": "Romance",
     "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1713584933~exp=1713588533~hmac=5d9a5057d9a7ecec6a4d421cbfed82fa7357cc520c18b285d434cfea02b3b186&w=740"
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "name": "Fantasy Book",
     "title": "The Story of the Fantasy Book",
-    "price": 0,
+    "price": 20,
     "category": "Fantasy",
     "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1713584933~exp=1713588533~hmac=5d9a5057d9a7ecec6a4d421cbfed82fa7357cc520c18b285d434cfea02b3b186&w=740"
   },
@@ -77,6 +77,22 @@
     "title": "The Story of the Cook Book",
     "price": 0,
     "category": "Free",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1713584933~exp=1713588533~hmac=5d9a5057d9a7ecec6a4d421cbfed82fa7357cc520c18b285d434cfea02b3b186&w=740"
+  },
+  {
+    "id": 11,
+    "name": "Travel Book",
+    "title": "The Story of the Travel Book",
+    "price": 50,
+    "category": "Travel",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1713584933~exp=1713588533~hmac=5d9a5057d9a7ecec6a4d421cbfed82fa7357cc520c18b285d434cfea02b3b186&w=740"
+  },
+  {
+    "id": 12,
+    "name": "History Book",
+    "title": "The Story of the History Book",
+    "price": 30,
+    "category": "History",
     "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1713584933~exp=1713588533~hmac=5d9a5057d9a7ecec6a4d421cbfed82fa7357cc520c18b285d434cfea02b3b186&w=740"
   }
 ]
