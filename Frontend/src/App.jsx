@@ -1,19 +1,11 @@
- 
- import Banner from "./components/Banner";
-import Footer from "./components/Footer";
-import Freebook from "./components/Freebook";
-import Navbar from "./components/Navbar";
- const App = () => {
-   return (
+import Home from "./home/Home";
+
+const App = () => {
+  return (
     <>
-    <Navbar />
-    <Banner />
-    <Freebook />
-    <Footer />
+      <Home />
     </>
-     
-   );
- }
- 
- export default App
- 
+  ); 
+};
+
+export default App;
