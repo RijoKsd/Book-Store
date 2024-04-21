@@ -1,9 +1,9 @@
  
-import bannerBg from "../../public/banner.jpg"
+import bannerBg from "/banner.jpg"
 const Banner = () => {
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col-reverse md:flex-row  md:my-10">
+      <div  className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col-reverse md:flex-row  md:my-10 mt-10" >
         <div className="w-full md:w-1/2 mt-12 md:mt-32">
           <div className="space-y-12 ">
             <h1 className=" text-3xl md:text-4xl font-bold leading-10 " >

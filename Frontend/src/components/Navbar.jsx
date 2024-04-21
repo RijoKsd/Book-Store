@@ -31,7 +31,11 @@ const Navbar = () => {
     <>
       <hr />
       <div
-        className={`fixed  inset-x-0 top-0  max-w-screen-2xl container mx-auto md:px-20 px-4 ${sticky ? "bg-base-200 shadow-md duration-300 transition-all ease-in-out" : ""}}`}
+        className={` fixed z-10  inset-x-0 top-0  max-w-screen-2xl container mx-auto md:px-20 px-4 ${
+          sticky
+            ? "bg-base-200  shadow-md duration-300 transition-all ease-in-out"
+            : ""
+        } `}
       >
         <div className="navbar  ">
           <div className="navbar-start">
@@ -74,9 +78,8 @@ const Navbar = () => {
               <label className="border px-3 py-2 rounded-md  flex items-center gap-2">
                 <input
                   type="text"
-                  className=" grow outline-none bg-transparent" 
+                  className=" grow outline-none bg-transparent"
                   placeholder="Search"
-                  
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
