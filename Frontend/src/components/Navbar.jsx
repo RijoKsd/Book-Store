@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Login from "./Login";
 const Navbar = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -80,7 +81,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-80  dark:bg-slate-900 dark:text-white dark:border dark:border-white"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-80   dark:bg-slate-900 dark:text-white dark:border dark:border-white"
               >
                 {navItems}
               </ul>
@@ -148,9 +149,15 @@ const Navbar = () => {
               </label>
             </div>
             <div className="">
-              <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 cursor-pointer duration-300 dark:border dark:border-white">
+              <a
+                className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 cursor-pointer duration-300 dark:border dark:border-white"
+                onClick={() => {
+                  document.getElementById("my_modal_3").showModal();
+                }}
+              >
                 Login
               </a>
+              <Login />
             </div>
           </div>
         </div>
