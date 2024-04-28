@@ -2,11 +2,27 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import list from "../../public/list.json";
 import Slider from "react-slick";
 import Cards from "./Cards";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Freebook() {
+  const [book, setBook] = useState([]);
+
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:4001/book");
+        const data = res.data.filter((data) => data.category === "Free");
+        setBook(data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getBook();
+  }, []);
+
   var settings = {
     dots: true,
     infinite: false,
@@ -37,15 +53,12 @@ function Freebook() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
-          arrows:false
-          
+          // dots: false,
+          // arrows: false,
         },
-      
       },
     ],
   };
-  const freeBooks = list.filter((book) => book.category === "Free");
 
   return (
     <>
@@ -63,9 +76,14 @@ function Freebook() {
         <div>
           <div className="slider-container md:mt-14">
             <Slider {...settings}>
-              {freeBooks.map((book) => (
-                <Cards book={book} key={book.id} />
-              ))}
+              {book && book.length > 0 ? (
+                book.map((book) => <Cards book={book} key={book.id} />)
+              ) : (
+                <h1 className="text-3xl md:text-5xl  col-span-3 text-center bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-400 inline-block text-transparent bg-clip-text mt-3" >
+                  {" "}
+                  No books available
+                </h1>
+              )}
             </Slider>
           </div>
         </div>
