@@ -1,25 +1,48 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Login from "./Login";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
   const {
     register,
     handleSubmit,
-   
+
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      fullname: data.fullname,
+      email: data.email,
+      password: data.password,
+    };
+    await axios
+      .post("http://localhost:4001/user/signup", userInfo)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          toast.success("Sign up successful");
+
+          localStorage.setItem("users", JSON.stringify(res.data.user));
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response.data.message);
+          toast.error(err.response.data.message);
+        }
+      });
+  };
   return (
     <div className="flex h-svh items-center justify-center ">
       <div>
         <div className="w-screen shadow-md  border  rounded-md md:p-8 dark:bg-slate-900 dark:text-white modal-box">
-          <form  onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             {/* if there is a button in form, it will close the modal */}
             <Link
               to="/"
-              
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
             >
               ✕
@@ -35,9 +58,9 @@ const Signup = () => {
                 className="input input-bordered w-full dark:text-slate-900"
                 placeholder="name"
                 id="name"
-                {...register("name", { required: true })}
+                {...register("fullname", { required: true })}
               />
-              {errors.name && (
+              {errors.fullname && (
                 <span className="text-sm text-red-400">
                   This field is required
                 </span>

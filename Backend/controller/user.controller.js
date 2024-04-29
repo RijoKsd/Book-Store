@@ -16,7 +16,14 @@ export const signup = async (req, res) => {
       password: hashPassword,
     });
     await createdUser.save();
-    res.status(201).json({ message: "User created successfully" });
+    res.status(201).json({
+      message: "User created successfully",
+      user: {
+        _id: createdUser._id,
+        fullname: createdUser.fullname,
+        email: createdUser.email,
+      },
+    });
   } catch (error) {
     console.log(error.message);
     res.status(500).json(error);
@@ -36,12 +43,12 @@ export const login = async (req, res) => {
         user: {
           _id: user._id,
           fullname: user.fullname,
-          email: user.email
+          email: user.email,
         },
       });
     }
   } catch (error) {
-    console.log("Error: ",  error.message);
+    console.log("Error: ", error.message);
     res.status(500).json({ message: "Internal server error" });
   }
 };
