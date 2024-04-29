@@ -21,8 +21,11 @@ const Login = () => {
         console.log(res.data);
         if (res.data) {
           toast.success("Successfully created!");
-          localStorage.setItem("users", JSON.stringify(res.data.user));
+          document.getElementById("my_modal_3").close();
+
+          window.location.reload();
         }
+        localStorage.setItem("users", JSON.stringify(res.data.user));
       })
       .catch((err) => {
         if (err.response) {
@@ -39,6 +42,7 @@ const Login = () => {
             <Link
               to="/"
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              onClick={() => document.getElementById("my_modal_3").close()}
             >
               ✕
             </Link>
